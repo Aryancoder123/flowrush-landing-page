@@ -1,7 +1,11 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
+
+const httpLink = createHttpLink({
+  uri: process.env.NEXT_PUBLIC_WORDPRESS_API_URL,
+});
 
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_WORDPRESS_API_URL,
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 

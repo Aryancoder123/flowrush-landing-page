@@ -1,4 +1,4 @@
-import client from "@/lib/apolloClient";
+import client from "@/lib/apollo-client";
 import { gql } from "@apollo/client";
 
 export default async function Home() {
