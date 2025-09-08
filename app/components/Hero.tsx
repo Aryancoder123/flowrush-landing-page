@@ -1267,19 +1267,21 @@ export default function Hero() {
 
               {/* Tech Category Chips */}
               <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {Object.keys(techStackLogos).map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedTechCategory(category)}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                      selectedTechCategory === category
-                        ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg"
-                        : "bg-slate-800/50 text-slate-300 border border-slate-700/50 hover:bg-slate-700/50 hover:text-white"
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
+                {(Object.keys(techStackLogos) as TechCategory[]).map(
+                  (category) => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedTechCategory(category)}
+                      className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                        selectedTechCategory === category
+                          ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg"
+                          : "bg-slate-800/50 text-slate-300 border border-slate-700/50 hover:bg-slate-700/50 hover:text-white"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  )
+                )}
               </div>
 
               {/* Tech Stack Logos */}
