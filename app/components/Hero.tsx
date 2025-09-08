@@ -108,7 +108,7 @@ export default function Hero() {
   };
 
   // FAQ state and data
-  const [openFAQ, setOpenFAQ] = useState(null);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   const faqData = [
     {
