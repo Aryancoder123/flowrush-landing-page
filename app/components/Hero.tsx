@@ -18,6 +18,14 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
+type TechCategory =
+  | "Web development"
+  | "Mobile development"
+  | "Cloud & DevOps"
+  | "AI & ML"
+  | "SEO & Analytics"
+  | "Design & UX";
+
 export default function Hero() {
   const services = [
     "Web Development",
@@ -47,10 +55,10 @@ export default function Hero() {
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [selectedTechCategory, setSelectedTechCategory] =
-    useState("Web development");
+    useState<TechCategory>("Web development");
 
   // Tech stack logos mapping
-  const techStackLogos = {
+  const techStackLogos: Record<TechCategory, string[]> = {
     "Web development": [
       "/LOGOS/next.js-tkpt01eo0tpocevvyxrsc.webp",
       "/LOGOS/Unofficial_JavaScript_logo_2.svg.webp",
