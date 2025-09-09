@@ -40,12 +40,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <body className={`${inter.className} bg-slate-900`}>
+        <div className="min-h-screen bg-slate-900 pt-20">
           <Header />
-          <main>
+          <main className="relative bg-slate-900">
             <Hero />
-            {/* <Features /> */}
+            {children}
           </main>
           <Footer />
         </div>

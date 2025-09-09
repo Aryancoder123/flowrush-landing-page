@@ -36,6 +36,7 @@ import {
   MessageCircle,
   Phone,
   Calendar,
+  Star,
 } from "lucide-react";
 
 export default function Header() {
@@ -141,9 +142,68 @@ export default function Header() {
     },
   ];
 
+  // Services for marquee
+  const services = [
+    "Web Development",
+    "Mobile App Development",
+    "UI/UX Design",
+    "Cloud Solutions",
+    "AI Integration",
+    "E-commerce Development",
+    "DevOps Services",
+    "Digital Marketing",
+    "Cybersecurity",
+    "Data Analytics",
+  ];
+
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700 shadow-lg">
+      {/* Marquee Section - Above Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 w-full bg-slate-950/95 backdrop-blur-sm border-b border-slate-800/50">
+        <div className="overflow-hidden bg-gradient-to-r from-blue-600/20 to-purple-600/20">
+          <div className="flex animate-marquee-fast whitespace-nowrap py-2">
+            {/* First set of services */}
+            {services.map((service, index) => (
+              <div
+                key={`first-${index}`}
+                className="flex items-center mx-6 flex-shrink-0"
+              >
+                <Star className="w-3 h-3 text-blue-400 mr-2 flex-shrink-0" />
+                <span className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                  {service}
+                </span>
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {services.map((service, index) => (
+              <div
+                key={`second-${index}`}
+                className="flex items-center mx-6 flex-shrink-0"
+              >
+                <Star className="w-3 h-3 text-blue-400 mr-2 flex-shrink-0" />
+                <span className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                  {service}
+                </span>
+              </div>
+            ))}
+            {/* Third set for even smoother animation */}
+            {services.map((service, index) => (
+              <div
+                key={`third-${index}`}
+                className="flex items-center mx-6 flex-shrink-0"
+              >
+                <Star className="w-3 h-3 text-blue-400 mr-2 flex-shrink-0" />
+                <span className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                  {service}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Header Section - Below Marquee */}
+      <header className="fixed top-8 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-700 shadow-lg">
         <div className="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -161,7 +221,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-2 flex-1 justify-center max-w-4xl overflow-visible">
+            <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
               {navigationItems.map((item, index) => (
                 <div
                   key={index}
@@ -169,40 +229,79 @@ export default function Header() {
                   onMouseEnter={() => handleMouseEnter(item.label)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button className="flex items-center space-x-1 px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-all duration-300 text-sm whitespace-nowrap">
-                    <span className="font-medium truncate max-w-28">
-                      {item.label}
-                    </span>
-                    <ChevronDown className="w-3 h-3 flex-shrink-0" />
+                  <button className="flex items-center space-x-1 px-3 py-2 text-slate-300 hover:text-white transition-all duration-300 text-sm">
+                    <span className="font-medium">{item.label}</span>
+                    <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                   </button>
 
-                  {/* Dropdown Menu */}
+                  {/* Simple Horizontal Dropdown */}
                   {activeDropdown === item.label && (
-                    <div
-                      className="absolute top-full left-0 mt-1 w-72 bg-slate-800 rounded-lg shadow-2xl border border-slate-700 py-2 z-[9999] backdrop-blur-sm"
-                      style={{ position: "absolute" }}
-                    >
-                      <div className="grid grid-cols-1 gap-0">
-                        {item.submenu.map((subItem, subIndex) => (
-                          <a
-                            key={subIndex}
-                            href="#"
-                            className="flex items-center space-x-2 px-3 py-2 text-slate-300 hover:bg-slate-700 hover:text-white transition-all duration-200 text-sm"
-                          >
-                            <subItem.icon className="w-3 h-3 text-blue-400 flex-shrink-0" />
-                            <span className="truncate">{subItem.label}</span>
-                          </a>
-                        ))}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/4 mt-2 w-[600px] bg-slate-900/95 backdrop-blur-xl rounded-xl shadow-xl border border-slate-700/50 p-4 z-[9999]">
+                      <div className="grid grid-cols-3 gap-4 mb-4">
+                        {navigationItems
+                          .slice(0, 3)
+                          .map((category, catIndex) => (
+                            <div key={catIndex} className="space-y-2">
+                              <div className="flex items-center space-x-2 pb-1 border-b border-slate-700/50">
+                                <category.icon className="w-4 h-4 text-blue-400" />
+                                <h3 className="text-blue-400 font-medium text-xs">
+                                  {category.label}
+                                </h3>
+                              </div>
+                              <div className="space-y-1">
+                                {category.submenu.map((subItem, subIndex) => (
+                                  <a
+                                    key={subIndex}
+                                    href="#"
+                                    className="flex items-center space-x-2 px-2 py-1 text-slate-300 hover:bg-slate-700/50 hover:text-white transition-all duration-200 text-xs rounded group"
+                                  >
+                                    <subItem.icon className="w-3 h-3 text-blue-400 flex-shrink-0" />
+                                    <span className="truncate">
+                                      {subItem.label}
+                                    </span>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        {navigationItems
+                          .slice(3, 5)
+                          .map((category, catIndex) => (
+                            <div key={catIndex} className="space-y-2">
+                              <div className="flex items-center space-x-2 pb-1 border-b border-slate-700/50">
+                                <category.icon className="w-4 h-4 text-blue-400" />
+                                <h3 className="text-blue-400 font-medium text-xs">
+                                  {category.label}
+                                </h3>
+                              </div>
+                              <div className="space-y-1">
+                                {category.submenu.map((subItem, subIndex) => (
+                                  <a
+                                    key={subIndex}
+                                    href="#"
+                                    className="flex items-center space-x-2 px-2 py-1 text-slate-300 hover:bg-slate-700/50 hover:text-white transition-all duration-200 text-xs rounded group"
+                                  >
+                                    <subItem.icon className="w-3 h-3 text-blue-400 flex-shrink-0" />
+                                    <span className="truncate">
+                                      {subItem.label}
+                                    </span>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
                       </div>
                     </div>
                   )}
                 </div>
               ))}
 
-              {/* About Us Button */}
+              {/* About Button */}
               <button
                 onClick={() => setShowAboutModal(true)}
-                className="flex items-center space-x-1 px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-all duration-300 text-sm whitespace-nowrap"
+                className="flex items-center space-x-1 px-3 py-2 text-slate-300 hover:text-white transition-all duration-300 text-sm"
               >
                 <Info className="w-4 h-4" />
                 <span className="font-medium">About</span>
@@ -211,7 +310,7 @@ export default function Header() {
               {/* Contact Button */}
               <button
                 onClick={handleContactClick}
-                className="flex items-center space-x-1 px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-all duration-300 text-sm whitespace-nowrap"
+                className="flex items-center space-x-1 px-3 py-2 text-slate-300 hover:text-white transition-all duration-300 text-sm"
               >
                 <Mail className="w-4 h-4" />
                 <span className="font-medium">Contact</span>
@@ -219,19 +318,21 @@ export default function Header() {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-2 flex-shrink-0">
+            <div className="hidden lg:flex items-center space-x-3 flex-shrink-0">
               <a
                 href="https://calendly.com/sahaj-baveja"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-1 bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:from-green-500 hover:to-green-600 whitespace-nowrap"
+                className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:from-blue-500 hover:to-blue-600 whitespace-nowrap transform hover:scale-105 border border-blue-500/50 backdrop-blur-sm relative overflow-hidden group"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Book Meeting</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Calendar className="w-4 h-4 relative z-10" />
+                <span className="relative z-10">Book Meeting</span>
               </a>
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:from-blue-500 hover:to-blue-600 whitespace-nowrap">
-                Get Started
-              </button>
+              {/* <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-sm shadow-xl hover:shadow-2xl transition-all duration-300 hover:from-blue-500 hover:to-blue-600 whitespace-nowrap transform hover:scale-105 border border-blue-500/50 backdrop-blur-sm relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10">Get Started</span>
+              </button> */}
             </div>
 
             {/* Mobile menu button */}
@@ -272,26 +373,26 @@ export default function Header() {
                   </div>
                 ))}
 
-                <div className="pt-4 space-y-2 border-t border-slate-700">
+                <div className="pt-4 space-y-3 border-t border-slate-700">
                   <button
                     onClick={() => setShowAboutModal(true)}
-                    className="flex items-center space-x-2 px-3 py-2 text-slate-400 hover:text-white"
+                    className="flex items-center space-x-2 px-4 py-3 text-slate-300 hover:text-white bg-gradient-to-r from-slate-800/50 to-slate-700/50 hover:from-blue-800/50 hover:to-blue-600/50 rounded-lg transition-all duration-300 font-medium w-full group"
                   >
-                    <Info className="w-4 h-4" />
+                    <Info className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                     <span>About Us</span>
                   </button>
                   <button
                     onClick={handleContactClick}
-                    className="flex items-center space-x-2 px-3 py-2 text-slate-400 hover:text-white"
+                    className="flex items-center space-x-2 px-4 py-3 text-slate-300 hover:text-white bg-gradient-to-r from-slate-800/50 to-slate-700/50 hover:from-blue-800/50 hover:to-blue-600/50 rounded-lg transition-all duration-300 font-medium w-full group"
                   >
-                    <Mail className="w-4 h-4" />
+                    <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                     <span>Contact</span>
                   </button>
                   <a
                     href="https://calendly.com/sahaj-baveja"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-3 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:from-green-500 hover:to-green-600 w-full mt-4"
+                    className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:from-blue-500 hover:to-blue-600 w-full mt-4"
                   >
                     <Calendar className="w-4 h-4" />
                     <span>Book a Meeting</span>
@@ -551,7 +652,7 @@ export default function Header() {
               handleWhatsAppClick();
               setShowFloatingButtons(false);
             }}
-            className="group flex items-center space-x-3 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-slide-up"
+            className="group flex items-center space-x-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-slide-up"
           >
             <Phone className="w-5 h-5" />
             <span className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">

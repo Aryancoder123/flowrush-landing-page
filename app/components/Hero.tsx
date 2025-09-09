@@ -190,79 +190,171 @@ export default function Hero() {
     <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
-          {/* Marquee Services */}
-          <div className="overflow-hidden bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-full mb-8 py-3">
-            <div className="flex animate-marquee whitespace-nowrap">
-              {/* First set of services */}
-              {services.map((service, index) => (
-                <div key={`first-${index}`} className="flex items-center mx-4">
-                  <Star className="w-4 h-4 text-yellow-500 mr-2 flex-shrink-0" />
-                  <span className="text-sm font-medium text-blue-300">
-                    {service}
-                  </span>
-                </div>
-              ))}
-              {/* Duplicate set for seamless loop */}
-              {services.map((service, index) => (
-                <div key={`second-${index}`} className="flex items-center mx-4">
-                  <Star className="w-4 h-4 text-yellow-500 mr-2 flex-shrink-0" />
-                  <span className="text-sm font-medium text-blue-300">
-                    {service}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Main Heading with Typing Animation */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 min-h-[2.5em]"
-          >
-            White Label Global Experts in
-            <br />
-            <span className="gradient-text">
-              {displayedText}
-              <span className="animate-pulse">|</span>
-            </span>
-          </motion.h1>
-
-          {/* Strategic Partnership Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-200 mb-6 max-w-4xl mx-auto leading-relaxed"
-          >
-            We provide comprehensive global white-label technology solutions,
-            working closely with a curated selection of agencies to serve as
-            their trusted strategic technology partners. Our aim is to enhance
-            their offerings and drive innovation in their projects.
-          </motion.p>
-
-          {/* Dashboard Image */}
+          {/* Hero Section with 3D Background Effect */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-12 max-w-5xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="relative mb-12 max-w-6xl mx-auto"
           >
-            <div className="relative">
-              {/* Background glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl blur-3xl opacity-20 scale-105"></div>
+            {/* Advanced 3D Background Effect Container */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900/90 via-blue-950/40 to-purple-950/30 backdrop-blur-xl border border-slate-700/50 shadow-2xl transform-3d">
+              {/* Animated Background Elements */}
+              <div className="absolute inset-0 transform-3d">
+                {/* Dynamic floating particles */}
+                <div className="absolute top-12 left-12 w-2 h-2 bg-blue-400/80 rounded-full animate-float blur-sm"></div>
+                <div className="absolute top-24 left-32 w-1 h-1 bg-cyan-300/60 rounded-full animate-float delay-300 blur-sm"></div>
+                <div className="absolute top-16 right-20 w-2 h-2 bg-purple-400/70 rounded-full animate-float delay-700 blur-sm"></div>
+                <div className="absolute bottom-20 left-16 w-1 h-1 bg-blue-300/50 rounded-full animate-float delay-1000 blur-sm"></div>
+                <div className="absolute bottom-32 right-24 w-2 h-2 bg-cyan-400/60 rounded-full animate-float delay-500 blur-sm"></div>
+                <div className="absolute top-40 left-1/4 w-1 h-1 bg-purple-300/40 rounded-full animate-float delay-1200 blur-sm"></div>
+                <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-blue-200/50 rounded-full animate-float delay-800 blur-sm"></div>
 
-              {/* Dashboard image container */}
-              <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50 shadow-2xl">
-                <Image
-                  src="/dashboard.png"
-                  alt="Flowrush Technologies Dashboard"
-                  width={1200}
-                  height={700}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                  priority
-                />
+                {/* Large floating orbs with 3D effect */}
+                <div className="absolute top-8 left-8 w-40 h-40 bg-gradient-to-br from-blue-500/15 via-cyan-400/20 to-blue-600/10 rounded-full blur-2xl animate-float-slow opacity-80"></div>
+                <div className="absolute top-16 right-12 w-32 h-32 bg-gradient-to-br from-purple-500/20 via-blue-400/15 to-cyan-500/10 rounded-full blur-xl animate-float-slow delay-2000 opacity-70"></div>
+                <div className="absolute bottom-12 left-16 w-36 h-36 bg-gradient-to-br from-cyan-400/18 via-blue-500/12 to-purple-400/8 rounded-full blur-2xl animate-float-slow delay-4000 opacity-75"></div>
+                <div className="absolute bottom-8 right-8 w-28 h-28 bg-gradient-to-br from-blue-400/22 via-cyan-300/16 to-blue-600/12 rounded-full blur-xl animate-float-slow delay-3000 opacity-80"></div>
+
+                {/* Geometric shapes with 3D rotation */}
+                <div className="absolute top-20 left-1/3 w-6 h-6 bg-gradient-to-br from-blue-400/30 to-cyan-300/20 rotate-45 animate-spin-slow blur-sm"></div>
+                <div className="absolute bottom-24 right-1/4 w-4 h-4 bg-gradient-to-br from-purple-400/25 to-blue-400/15 transform rotate-12 animate-pulse blur-sm"></div>
+                <div className="absolute top-1/2 left-12 w-3 h-8 bg-gradient-to-b from-cyan-400/20 to-transparent animate-float delay-600"></div>
+                <div className="absolute top-1/3 right-16 w-8 h-3 bg-gradient-to-r from-blue-400/20 to-transparent animate-float delay-900"></div>
+
+                {/* Advanced grid pattern with perspective */}
+                <div className="absolute inset-0 opacity-8">
+                  <div
+                    className="w-full h-full transform perspective-1000"
+                    style={{
+                      backgroundImage: `
+                      linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+                      linear-gradient(rgba(147, 51, 234, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(147, 51, 234, 0.05) 1px, transparent 1px)
+                    `,
+                      backgroundSize:
+                        "60px 60px, 60px 60px, 30px 30px, 30px 30px",
+                      backgroundPosition: "0 0, 0 0, 15px 15px, 15px 15px",
+                    }}
+                  ></div>
+                </div>
+
+                {/* Multi-layered radial gradients */}
+                <div className="absolute inset-0 bg-gradient-radial from-blue-500/8 via-transparent to-purple-500/5"></div>
+                <div className="absolute inset-0 bg-gradient-radial from-transparent via-cyan-400/3 to-transparent"></div>
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-400/5 to-transparent"></div>
+                <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-purple-400/5 to-transparent"></div>
+
+                {/* Animated light rays */}
+                <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-blue-400/20 to-transparent animate-pulse delay-1000"></div>
+                <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-cyan-300/15 to-transparent animate-pulse delay-2000"></div>
+                <div className="absolute left-0 top-1/3 w-full h-px bg-gradient-to-r from-transparent via-purple-400/15 to-transparent animate-pulse delay-1500"></div>
+
+                {/* Floating tech elements */}
+                <div className="absolute top-1/4 left-1/5 opacity-20">
+                  <div className="w-8 h-8 border border-blue-400/30 rounded-lg rotate-45 animate-spin-slow"></div>
+                </div>
+                <div className="absolute bottom-1/3 right-1/5 opacity-15">
+                  <div className="w-6 h-6 border border-cyan-400/25 rounded-full animate-pulse"></div>
+                </div>
+                <div className="absolute top-1/2 right-1/4 opacity-25">
+                  <div className="w-4 h-4 bg-purple-400/20 rounded-full animate-bounce-slow"></div>
+                </div>
+
+                {/* Depth layers for 3D effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-slate-900/10 to-slate-800/20 mix-blend-overlay"></div>
+                <div className="absolute inset-4 bg-gradient-to-tl from-blue-950/10 via-transparent to-purple-950/10 rounded-2xl"></div>
+              </div>
+
+              {/* Content Container */}
+              <div className="relative z-10 px-8 py-16 sm:px-12 sm:py-20">
+                {/* Main Heading with Typing Animation */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 min-h-[2.5em] text-center"
+                >
+                  White Label Global Experts in
+                  <br />
+                  <span className="gradient-text">
+                    {displayedText}
+                    <span className="animate-pulse">|</span>
+                  </span>
+                </motion.h1>
+
+                {/* Strategic Partnership Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-lg text-slate-200 mb-8 max-w-4xl mx-auto leading-relaxed text-center"
+                >
+                  We provide comprehensive global white-label technology
+                  solutions, working closely with a curated selection of
+                  agencies to serve as their trusted strategic technology
+                  partners. Our aim is to enhance their offerings and drive
+                  innovation in their projects.
+                </motion.p>
+
+                {/* Floating Tech Icons */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="flex justify-center items-center space-x-8 mb-8"
+                >
+                  {/* Floating tech icons */}
+                  <div className="animate-float">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                      <Globe className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <div className="animate-float delay-200">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+                      <Zap className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <div className="animate-float delay-400">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Stats Row */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
+                >
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-400 mb-1">
+                      2000+
+                    </div>
+                    <div className="text-sm text-slate-300">
+                      Projects Delivered
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-300 mb-1">
+                      25+
+                    </div>
+                    <div className="text-sm text-slate-300">
+                      Countries Served
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-500 mb-1">
+                      8+
+                    </div>
+                    <div className="text-sm text-slate-300">
+                      Years Experience
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
@@ -549,7 +641,7 @@ export default function Hero() {
             <div className="max-w-6xl mx-auto">
               <div className="relative">
                 {/* Background glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-3xl blur-3xl opacity-20 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-3xl opacity-20 scale-105"></div>
 
                 {/* Main dashboard container */}
                 <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 shadow-2xl">
@@ -624,7 +716,7 @@ export default function Hero() {
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Left Side - Dashboard Badge */}
                     <div className="lg:col-span-1">
-                      <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 rounded-2xl p-6 border border-blue-500/30 h-full">
+                      <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 border border-blue-500/30 h-full">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center space-x-2">
                             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -635,8 +727,8 @@ export default function Hero() {
                             </span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                            <span className="text-xs text-green-400 font-medium">
+                            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                            <span className="text-xs text-blue-400 font-medium">
                               Live
                             </span>
                           </div>
@@ -657,7 +749,7 @@ export default function Hero() {
                             </div>
                             <div className="text-center">
                               <div className="w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center mx-auto mb-2">
-                                <Users className="w-6 h-6 text-purple-400" />
+                                <Users className="w-6 h-6 text-blue-400" />
                               </div>
                               <div className="text-xs text-slate-400">
                                 Mobile
@@ -665,7 +757,7 @@ export default function Hero() {
                             </div>
                             <div className="text-center">
                               <div className="w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center mx-auto mb-2">
-                                <Globe className="w-6 h-6 text-green-400" />
+                                <Globe className="w-6 h-6 text-blue-400" />
                               </div>
                               <div className="text-xs text-slate-400">
                                 Backend
@@ -711,13 +803,13 @@ export default function Hero() {
                               <span className="text-slate-300 font-medium">
                                 On-Time Delivery
                               </span>
-                              <span className="text-green-400 font-bold text-lg">
+                              <span className="text-blue-400 font-bold text-lg">
                                 95%
                               </span>
                             </div>
                             <div className="w-full bg-slate-700 rounded-full h-3">
                               <div
-                                className="bg-gradient-to-r from-green-500 to-emerald-400 h-3 rounded-full transition-all duration-1000 ease-out"
+                                className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-1000 ease-out"
                                 style={{ width: "95%" }}
                               ></div>
                             </div>
@@ -729,13 +821,13 @@ export default function Hero() {
                               <span className="text-slate-300 font-medium">
                                 Quality Score
                               </span>
-                              <span className="text-purple-400 font-bold text-lg">
+                              <span className="text-blue-400 font-bold text-lg">
                                 97%
                               </span>
                             </div>
                             <div className="w-full bg-slate-700 rounded-full h-3">
                               <div
-                                className="bg-gradient-to-r from-purple-500 to-pink-400 h-3 rounded-full transition-all duration-1000 ease-out"
+                                className="bg-gradient-to-r from-blue-600 to-blue-700 h-3 rounded-full transition-all duration-1000 ease-out"
                                 style={{ width: "97%" }}
                               ></div>
                             </div>
@@ -762,8 +854,8 @@ export default function Hero() {
 
                           <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30">
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-green-600/20 rounded-lg flex items-center justify-center">
-                                <Zap className="w-4 h-4 text-green-400" />
+                              <div className="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                                <Zap className="w-4 h-4 text-blue-400" />
                               </div>
                               <div>
                                 <div className="text-white font-semibold text-sm">
@@ -832,12 +924,12 @@ export default function Hero() {
                     </div>
 
                     {/* Step 2 - Design & Prototype */}
-                    <div className="min-w-[300px] bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-2xl p-6 border border-purple-700/50 shadow-xl">
+                    <div className="min-w-[300px] bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 border border-blue-700/50 shadow-xl">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                           <span className="text-white font-bold">2</span>
                         </div>
-                        <div className="text-xs text-purple-400 font-medium">
+                        <div className="text-xs text-blue-400 font-medium">
                           Design
                         </div>
                       </div>
@@ -849,17 +941,17 @@ export default function Hero() {
                         with interactive prototypes for your approval.
                       </p>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full w-full"></div>
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-full"></div>
                       </div>
                     </div>
 
                     {/* Step 3 - Development */}
-                    <div className="min-w-[300px] bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-2xl p-6 border border-green-700/50 shadow-xl">
+                    <div className="min-w-[300px] bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 border border-blue-700/50 shadow-xl">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                           <span className="text-white font-bold">3</span>
                         </div>
-                        <div className="text-xs text-green-400 font-medium">
+                        <div className="text-xs text-blue-400 font-medium">
                           Development
                         </div>
                       </div>
@@ -871,17 +963,17 @@ export default function Hero() {
                         cutting-edge technologies and best practices.
                       </p>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full w-full"></div>
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-full"></div>
                       </div>
                     </div>
 
                     {/* Step 4 - Testing & QA */}
-                    <div className="min-w-[300px] bg-gradient-to-br from-yellow-900/40 to-orange-800/40 rounded-2xl p-6 border border-yellow-700/50 shadow-xl">
+                    <div className="min-w-[300px] bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 border border-blue-700/50 shadow-xl">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 bg-yellow-600 rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                           <span className="text-white font-bold">4</span>
                         </div>
-                        <div className="text-xs text-yellow-400 font-medium">
+                        <div className="text-xs text-blue-400 font-medium">
                           Testing
                         </div>
                       </div>
@@ -893,17 +985,17 @@ export default function Hero() {
                         solutions that meet the highest quality standards.
                       </p>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full w-full"></div>
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-full"></div>
                       </div>
                     </div>
 
                     {/* Step 5 - Launch & Support */}
-                    <div className="min-w-[300px] bg-gradient-to-br from-cyan-900/40 to-teal-800/40 rounded-2xl p-6 border border-cyan-700/50 shadow-xl">
+                    <div className="min-w-[300px] bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 border border-blue-700/50 shadow-xl">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 bg-cyan-600 rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                           <span className="text-white font-bold">5</span>
                         </div>
-                        <div className="text-xs text-cyan-400 font-medium">
+                        <div className="text-xs text-blue-400 font-medium">
                           Launch
                         </div>
                       </div>
@@ -915,7 +1007,7 @@ export default function Hero() {
                         to ensure your project's continued success.
                       </p>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-cyan-500 to-teal-500 h-2 rounded-full w-full"></div>
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-full"></div>
                       </div>
                     </div>
 
@@ -941,12 +1033,12 @@ export default function Hero() {
                       </div>
                     </div>
 
-                    <div className="min-w-[300px] bg-gradient-to-br from-purple-900/40 to-purple-800/40 rounded-2xl p-6 border border-purple-700/50 shadow-xl">
+                    <div className="min-w-[300px] bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 border border-blue-700/50 shadow-xl">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center">
+                        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                           <span className="text-white font-bold">2</span>
                         </div>
-                        <div className="text-xs text-purple-400 font-medium">
+                        <div className="text-xs text-blue-400 font-medium">
                           Design
                         </div>
                       </div>
@@ -958,7 +1050,7 @@ export default function Hero() {
                         with interactive prototypes for your approval.
                       </p>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full w-full"></div>
+                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-full"></div>
                       </div>
                     </div>
                   </div>
@@ -1030,8 +1122,8 @@ export default function Hero() {
                 </div>
 
                 {/* Card 2 - Scalable Teams */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-purple-500/30 group">
-                  <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-500 transition-colors">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-blue-500/30 group">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-3">
@@ -1044,8 +1136,8 @@ export default function Hero() {
                 </div>
 
                 {/* Card 3 - Reliable Delivery */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-green-500/30 group">
-                  <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-500 transition-colors">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-blue-500/30 group">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-3">
@@ -1058,8 +1150,8 @@ export default function Hero() {
                 </div>
 
                 {/* Card 4 - Custom Solutions */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-yellow-500/30 group">
-                  <div className="w-12 h-12 bg-yellow-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-yellow-500 transition-colors">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-blue-500/30 group">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-3">
@@ -1072,8 +1164,8 @@ export default function Hero() {
                 </div>
 
                 {/* Card 5 - Transparent Communication */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-cyan-500/30 group">
-                  <div className="w-12 h-12 bg-cyan-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cyan-500 transition-colors">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-blue-500/30 group">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
                     <Headphones className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-3">
@@ -1133,10 +1225,10 @@ export default function Hero() {
                     {[1, 2, 3, 4].map((star) => (
                       <Star
                         key={star}
-                        className="w-5 h-5 text-yellow-400 fill-current"
+                        className="w-5 h-5 text-blue-400 fill-current"
                       />
                     ))}
-                    <Star className="w-5 h-5 text-yellow-400 fill-current opacity-50" />
+                    <Star className="w-5 h-5 text-blue-400 fill-current opacity-50" />
                     <span className="ml-2 text-sm text-slate-400">4.5/5</span>
                   </div>
 
@@ -1167,16 +1259,16 @@ export default function Hero() {
                 </div>
 
                 {/* Review 2 */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-purple-500/30 group">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-blue-500/30 group">
                   {/* Stars Rating */}
                   <div className="flex items-center mb-6">
                     {[1, 2, 3, 4].map((star) => (
                       <Star
                         key={star}
-                        className="w-5 h-5 text-yellow-400 fill-current"
+                        className="w-5 h-5 text-blue-400 fill-current"
                       />
                     ))}
-                    <Star className="w-5 h-5 text-yellow-400 fill-current opacity-50" />
+                    <Star className="w-5 h-5 text-blue-400 fill-current opacity-50" />
                     <span className="ml-2 text-sm text-slate-400">4.5/5</span>
                   </div>
 
@@ -1205,16 +1297,16 @@ export default function Hero() {
                 </div>
 
                 {/* Review 3 */}
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-green-500/30 group">
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-blue-500/30 group">
                   {/* Stars Rating */}
                   <div className="flex items-center mb-6">
                     {[1, 2, 3, 4].map((star) => (
                       <Star
                         key={star}
-                        className="w-5 h-5 text-yellow-400 fill-current"
+                        className="w-5 h-5 text-blue-400 fill-current"
                       />
                     ))}
-                    <Star className="w-5 h-5 text-yellow-400 fill-current opacity-50" />
+                    <Star className="w-5 h-5 text-blue-400 fill-current opacity-50" />
                     <span className="ml-2 text-sm text-slate-400">4.5/5</span>
                   </div>
 
@@ -1245,73 +1337,184 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Tools and Stack Section */}
+          {/* Professional Tools and Stack Section */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            className="mb-16"
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="mb-20"
           >
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-                  <span className="gradient-text">Tools and Stack</span>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Enhanced Header Section */}
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/10 to-purple-600/10 backdrop-blur-sm border border-blue-500/20 rounded-full px-4 py-2 mb-6"
+                >
+                  <Zap className="w-4 h-4 text-blue-400" />
+                  <span className="text-sm font-medium text-blue-300 uppercase tracking-wider">Technology Stack</span>
+                </motion.div>
+                
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.3 }}
+                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+                >
+                  Cutting-Edge <span className="gradient-text">Technologies</span>
                   <br />
-                  We Use
-                </h2>
-                <p className="text-lg text-slate-200 max-w-3xl mx-auto">
-                  We leverage the latest technologies and frameworks to build
-                  scalable, high-performance solutions across all platforms
-                </p>
+                  <span className="text-slate-300 text-3xl sm:text-4xl lg:text-5xl">We Master</span>
+                </motion.h2>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.4 }}
+                  className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+                >
+                  We harness the power of industry-leading technologies and frameworks to deliver 
+                  <span className="text-blue-300 font-semibold"> scalable, high-performance solutions</span> that 
+                  drive innovation and business growth across all platforms.
+                </motion.p>
               </div>
 
-              {/* Tech Category Chips */}
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {(Object.keys(techStackLogos) as TechCategory[]).map(
-                  (category) => (
-                    <button
-                      key={category}
-                      onClick={() => setSelectedTechCategory(category)}
-                      className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                        selectedTechCategory === category
-                          ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg"
-                          : "bg-slate-800/50 text-slate-300 border border-slate-700/50 hover:bg-slate-700/50 hover:text-white"
-                      }`}
-                    >
-                      {category}
-                    </button>
-                  )
-                )}
-              </div>
-
-              {/* Tech Stack Logos */}
-              <motion.div
-                key={selectedTechCategory}
+              {/* Professional Category Navigation */}
+              <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto"
+                transition={{ duration: 0.6, delay: 1.5 }}
+                className="mb-16"
               >
-                {techStackLogos[selectedTechCategory].map((logo, index) => (
+                <div className="bg-slate-800/30 backdrop-blur-xl rounded-2xl p-2 border border-slate-700/50 shadow-2xl max-w-5xl mx-auto">
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {(Object.keys(techStackLogos) as TechCategory[]).map(
+                      (category, index) => (
+                        <motion.button
+                          key={category}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: 1.6 + index * 0.1 }}
+                          onClick={() => setSelectedTechCategory(category)}
+                          className={`relative px-6 py-4 rounded-xl font-semibold text-sm transition-all duration-500 transform hover:scale-105 ${
+                            selectedTechCategory === category
+                              ? "bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white shadow-xl shadow-blue-500/25"
+                              : "text-slate-300 hover:bg-slate-700/50 hover:text-white"
+                          }`}
+                        >
+                          {selectedTechCategory === category && (
+                            <motion.div
+                              layoutId="activeCategory"
+                              className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 rounded-xl"
+                              transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                            />
+                          )}
+                          <span className="relative z-10">{category}</span>
+                        </motion.button>
+                      )
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Professional Tech Stack Grid */}
+              <div className="relative">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-900/50 rounded-3xl blur-3xl"></div>
+                
+                <motion.div
+                  key={selectedTechCategory}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="relative bg-slate-800/20 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/30 shadow-2xl"
+                >
+                  {/* Category Title */}
                   <motion.div
-                    key={`${selectedTechCategory}-${index}`}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/30 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl group"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="flex items-center gap-3 mb-8"
                   >
-                    <div className="w-full h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Image
-                        src={logo}
-                        alt={`${selectedTechCategory} technology`}
-                        width={64}
-                        height={64}
-                        className="max-w-full max-h-full object-contain filter brightness-90 group-hover:brightness-100 transition-all duration-300"
-                      />
+                    <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
+                    <h3 className="text-2xl font-bold text-white">{selectedTechCategory}</h3>
+                    <div className="flex-1 h-px bg-gradient-to-r from-slate-600/50 to-transparent ml-4"></div>
+                  </motion.div>
+
+                  {/* Enhanced Logo Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+                    {techStackLogos[selectedTechCategory].map((logo, index) => (
+                      <motion.div
+                        key={`${selectedTechCategory}-${index}`}
+                        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ 
+                          duration: 0.4, 
+                          delay: index * 0.08,
+                          ease: "easeOut"
+                        }}
+                        className="relative group cursor-pointer"
+                      >
+                        {/* Professional Glass Card */}
+                        <div className="relative bg-gradient-to-br from-slate-800/60 via-slate-700/40 to-slate-800/60 backdrop-blur-xl rounded-2xl p-6 border border-slate-600/40 group-hover:border-blue-400/60 transition-all duration-500 shadow-lg group-hover:shadow-blue-500/20 group-hover:shadow-2xl">
+                          
+                          {/* Premium Glow Effects */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                          
+                          {/* Elegant Inner Border */}
+                          <div className="absolute inset-0.5 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-40 group-hover:opacity-70 transition-all duration-500"></div>
+                          
+                          {/* Sophisticated Shimmer */}
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                          </div>
+
+                          {/* Logo Container */}
+                          <div className="relative z-10 aspect-square flex items-center justify-center group-hover:scale-110 transition-all duration-500 ease-out">
+                            <Image
+                              src={logo}
+                              alt={`${selectedTechCategory} technology`}
+                              width={56}
+                              height={56}
+                              className="max-w-full max-h-full object-contain filter brightness-90 group-hover:brightness-110 group-hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.4)] transition-all duration-500"
+                            />
+                          </div>
+
+                          {/* Professional Accent Dots */}
+                          <div className="absolute top-3 right-3 w-1.5 h-1.5 bg-blue-400/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
+                          <div className="absolute bottom-3 left-3 w-1 h-1 bg-purple-400/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-700 delay-200"></div>
+                          
+                          {/* Elegant Lightning Effect */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/10 via-transparent to-purple-400/10 opacity-0 group-hover:opacity-100 transition-all duration-400 group-hover:animate-pulse"></div>
+                        </div>
+                        
+                        {/* Hover Reflection */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl -z-10"></div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Professional Stats Footer */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="mt-8 pt-6 border-t border-slate-700/50"
+                  >
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span>{techStackLogos[selectedTechCategory].length} Technologies in {selectedTechCategory}</span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <span className="text-blue-300 font-medium">Enterprise-Grade</span>
+                        <span className="text-purple-300 font-medium">Production-Ready</span>
+                      </div>
                     </div>
                   </motion.div>
-                ))}
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
 
@@ -1453,7 +1656,7 @@ export default function Hero() {
                     </div>
 
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                         <Headphones className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -1467,7 +1670,7 @@ export default function Hero() {
                     </div>
 
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                         <Zap className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -1481,7 +1684,7 @@ export default function Hero() {
                     </div>
 
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                         <Users className="w-5 h-5 text-white" />
                       </div>
                       <div>
