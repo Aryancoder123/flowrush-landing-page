@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "The ultimate productivity tool to streamline your workflow and boost your efficiency.",
   keywords: "productivity, workflow, efficiency, automation, tools",
   authors: [{ name: "Flowrush Team" }],
+  icons: {
+    icon: "/favicon.webp",
+  },
   openGraph: {
     title: "Flowrush - Streamline Your Workflow",
     description:
