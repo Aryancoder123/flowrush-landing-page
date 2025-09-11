@@ -286,79 +286,130 @@ export default function Footer() {
         </div>
       )}
 
-      {/* Contact Modal */}
+      {/* Contact Modal - Mobile Responsive */}
       {showContactModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-          <div className="bg-slate-800 rounded-2xl max-w-2xl w-full border border-slate-700">
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-3 sm:p-4 lg:p-6">
+          <div className="bg-slate-800 rounded-xl sm:rounded-2xl w-full max-w-xs sm:max-w-lg lg:max-w-2xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto border border-slate-700">
+            <div className="p-4 sm:p-6 lg:p-8">
+              <div className="flex justify-between items-start mb-4 sm:mb-6">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                    <Mail className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-white">Contact Us</h2>
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                    Contact Us
+                  </h2>
                 </div>
                 <button
                   onClick={() => setShowContactModal(false)}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-400 hover:text-white transition-colors p-1 sm:p-2 rounded-lg hover:bg-slate-700/50"
                 >
-                  ✕
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                 </button>
               </div>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              <form className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                       First Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                       placeholder="Enter your first name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                       Last Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                       placeholder="Enter your last name"
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                     Email Address
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
                     placeholder="Enter your email address"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
+                    Service Interested In
+                  </label>
+                  <select className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
+                    <option value="">Select a service</option>
+                    <option value="web-development">
+                      Web Development & Design
+                    </option>
+                    <option value="app-development">
+                      Mobile App Development
+                    </option>
+                    <option value="ai-services">AI & Machine Learning</option>
+                    <option value="cloud-services">
+                      Cloud & Tech Services
+                    </option>
+                    <option value="staff-augmentation">
+                      Staff Augmentation
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                     Message
                   </label>
                   <textarea
-                    rows={4}
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    rows={3}
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base resize-none"
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
-                <div className="flex justify-end space-x-4">
+
+                <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
                   <button
                     type="button"
                     onClick={() => setShowContactModal(false)}
-                    className="px-8 py-4 text-slate-400 hover:text-white transition-colors rounded-xl"
+                    className="w-full sm:w-auto px-6 py-3 text-slate-400 hover:text-white transition-colors rounded-xl border border-slate-600 hover:border-slate-500 text-sm sm:text-base"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                    className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 text-sm sm:text-base"
                   >
                     Send Message
                   </button>
